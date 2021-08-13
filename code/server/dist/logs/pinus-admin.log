@@ -1,0 +1,18 @@
+[2021-08-06T15:05:42.196] [INFO] pinus-admin - [master-server-1 mqttServer.js] [MqttServer] listen on 3005
+[2021-08-06T15:05:42.221] [INFO] pinus-admin - [master-server-1 consoleService.js] try to connect master: "master", "127.0.0.1", 3005
+[2021-08-06T15:05:42.613] [INFO] pinus-admin - [gate-server-1 consoleService.js] try to connect master: "gate", "127.0.0.1", 3005
+[2021-08-06T15:05:42.621] [INFO] pinus-admin - [chat-server-1 consoleService.js] try to connect master: "chat", "127.0.0.1", 3005
+[2021-08-06T15:05:42.671] [INFO] pinus-admin - [connector-server-1 consoleService.js] try to connect master: "connector", "127.0.0.1", 3005
+[2021-08-06T16:10:43.719] [INFO] pinus-admin - [master-server-1 mqttServer.js] [MqttServer] listen on 3005
+[2021-08-06T16:10:43.738] [INFO] pinus-admin - [master-server-1 consoleService.js] try to connect master: "master", "127.0.0.1", 3005
+[2021-08-06T16:10:44.129] [INFO] pinus-admin - [chat-server-1 consoleService.js] try to connect master: "chat", "127.0.0.1", 3005
+[2021-08-06T16:10:44.137] [INFO] pinus-admin - [gate-server-1 consoleService.js] try to connect master: "gate", "127.0.0.1", 3005
+[2021-08-06T16:10:44.189] [INFO] pinus-admin - [connector-server-1 consoleService.js] try to connect master: "connector", "127.0.0.1", 3005
+[2021-08-13T13:21:14.143] [DEBUG] pinus-admin - [master-server-1 MasterSocket] disconnect gate-server-1 gate {"main":"D:\\WorkFlowFlow\\websocket-chat-ts-run\\game-server\\dist\\app","env":"development","id":"gate-server-1","host":"127.0.0.1","clientPort":3014,"frontend":"true","args":"--inspect=10003","serverType":"gate","handlerPaths":["D:\\WorkFlowFlow\\websocket-chat-ts-run\\game-server\\dist\\app\\servers\\gate\\handler"],"pid":23936}
+[2021-08-13T13:21:19.125] [DEBUG] pinus-admin - [master-server-1 MasterSocket] disconnect chat-server-1 chat {"main":"D:\\WorkFlowFlow\\websocket-chat-ts-run\\game-server\\dist\\app","env":"development","id":"chat-server-1","host":"127.0.0.1","port":6050,"args":"--inspect=10002","serverType":"chat","remoterPaths":[{"namespace":"sys","serverType":"chat","path":"D:\\WorkFlowFlow\\websocket-chat-ts-run\\game-server\\node_modules\\pinus\\dist\\lib\\common\\remote\\backend"},{"namespace":"user","serverType":"chat","path":"D:\\WorkFlowFlow\\websocket-chat-ts-run\\game-server\\dist\\app\\servers\\chat\\remote"}],"handlerPaths":["D:\\WorkFlowFlow\\websocket-chat-ts-run\\game-server\\dist\\app\\servers\\chat\\handler"],"pid":17976}
+[2021-08-13T13:21:24.143] [DEBUG] pinus-admin - [master-server-1 MasterSocket] disconnect connector-server-1 connector {"main":"D:\\WorkFlowFlow\\websocket-chat-ts-run\\game-server\\dist\\app","env":"development","id":"connector-server-1","host":"127.0.0.1","port":4050,"clientPort":3050,"frontend":"true","args":"--inspect=10001","serverType":"connector","remoterPaths":[{"namespace":"sys","serverType":"connector","path":"D:\\WorkFlowFlow\\websocket-chat-ts-run\\game-server\\node_modules\\pinus\\dist\\lib\\common\\remote\\frontend"}],"handlerPaths":["D:\\WorkFlowFlow\\websocket-chat-ts-run\\game-server\\dist\\app\\servers\\connector\\handler"],"pid":16876}
+[2021-08-13T13:38:10.090] [INFO] pinus-admin - [master-server-1 mqttServer.js] [MqttServer] listen on 3005
+[2021-08-13T13:38:10.109] [INFO] pinus-admin - [master-server-1 consoleService.js] try to connect master: "master", "127.0.0.1", 3005
+[2021-08-13T13:38:10.413] [INFO] pinus-admin - [gate-server-1 consoleService.js] try to connect master: "gate", "127.0.0.1", 3005
+[2021-08-13T13:38:10.431] [INFO] pinus-admin - [chat-server-1 consoleService.js] try to connect master: "chat", "127.0.0.1", 3005
+[2021-08-13T13:38:10.476] [INFO] pinus-admin - [connector-server-1 consoleService.js] try to connect master: "connector", "127.0.0.1", 3005

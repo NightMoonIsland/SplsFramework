@@ -10,6 +10,10 @@
   "userData": {
     "dependencies": [],
     "isPlugin": true,
-    "importAsPlugin": true
+    "importAsPlugin": true,
+    "executionScope": "enclosed",
+    "loadPluginInWeb": true,
+    "loadPluginInNative": true,
+    "loadPluginInEditor": true
   }
 }

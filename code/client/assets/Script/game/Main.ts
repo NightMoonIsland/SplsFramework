@@ -2,6 +2,8 @@
 import { _decorator, Component, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
+import { NetMgr } from '../framework/base/NetMgr'
+
 
 @ccclass('Main')
 export class Main extends Component {
@@ -16,15 +18,8 @@ export class Main extends Component {
         // [3]
     }
 
-    onClick() {	
-        var route = 'gate.gateHandler.queryEntry';
-        pomelo.init({
-            host: window.location.hostname,
-            port: 3014,
-            log: true
-            }, function() {
-                console.log("wolegeff qu");
-        });
+    onClick() {
+        NetMgr.Enter("heheda");
     }
 }
 

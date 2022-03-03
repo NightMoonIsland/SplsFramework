@@ -1617,7 +1617,11 @@ cc.Pomelo = function() {
     return pomelo;
     // module.exports = pomelo;
   };
- window.pomelo=new cc.Pomelo();
+//  window.pomelo=new cc.Pomelo();
+
+ window.createPomelo = function(){
+  return new cc.Pomelo();
+ }
 
 
 

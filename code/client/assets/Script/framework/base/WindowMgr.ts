@@ -6,12 +6,11 @@ import {BaseWindow} from './BaseWindow'
 // declare let require: (string) => any;
 import { WindowsMap } from "../../game/utils/const"
 
-@ccclass('WindowMgr')
 export class WindowMgr {
     node: Node;
     private constructor() { }
     private static instance : WindowMgr;
-    static getInstance() :WindowMgr{
+    public static getInstance() :WindowMgr{
         if (!this.instance) {
             this.instance = new WindowMgr()
         }
@@ -22,7 +21,7 @@ export class WindowMgr {
         this.node = node;
     }
 
-    openWindowsMap : []
+    openWindowsMap : BaseWindow []
     //
     // 打开指定UI
     //
@@ -30,6 +29,9 @@ export class WindowMgr {
         // if (this.openWindowsMap[windowName] ) {
         //     return this.openWindowsMap[windowName]
         // }
+        if(this.openWindowsMap[windowName]) {
+            return;
+        }
         let cls = WindowsMap[windowName]
         // let requireCls = require("../../game/window/UILogin");
         // let uiCls = requireCls.default;
@@ -44,8 +46,17 @@ export class WindowMgr {
             const newNode = instantiate(prefab);
             this.node.addChild(newNode);
             windowCls.setPrefab(newNode)
+            windowCls.initWindow()
         });
+        this.openWindowsMap[windowName] = windowCls;
 
         return windowCls
+    }
+
+    closeWindow(windowName) {
+        if(this.openWindowsMap[windowName]) {
+            
+            this.openWindowsMap[windowName] = null;
+        }
     }
 }

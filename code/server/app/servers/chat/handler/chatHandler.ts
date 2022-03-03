@@ -6,6 +6,8 @@ export default function(app: Application) {
     return new ChatHandler(app);
 }
 
+console.error("chatHandler test");
+
 export class ChatHandler {
     constructor(private app: Application) {
     }

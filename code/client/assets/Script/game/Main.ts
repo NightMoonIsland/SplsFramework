@@ -3,7 +3,7 @@ import { _decorator, Component, Node, resources } from 'cc';
 const { ccclass, property } = _decorator;
 
 import { NetMgr } from '../framework/base/NetMgr'
-import { ggame } from '../game/utils/game'
+import { CCGame, InitGlobalVariable } from '../game/utils/game'
 
 
 @ccclass('Main')
@@ -16,8 +16,10 @@ export class Main extends Component {
     // serializableDummy = 0;
 
     start () {
-        ggame.WindowMgr.initialize(this.node)
-        ggame.WindowMgr.openWindow("LoginWindow")
+        InitGlobalVariable();
+
+        CCGame.ctrl.WindowMgr.initialize(this.node)
+        CCGame.ctrl.WindowMgr.openWindow("LoginWindow")
         // [3]
     }
 

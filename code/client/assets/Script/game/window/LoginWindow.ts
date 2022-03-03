@@ -1,16 +1,30 @@
 
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, Node, find, CCObject, Button } from 'cc';
 const { ccclass, property } = _decorator;
 import { BaseWindow } from '../../framework/base/BaseWindow'
+import { CCGame } from '../utils/game'
 
-@ccclass('LoginWindow')
+// @ccclass('LoginWindow')
 export class LoginWindow extends BaseWindow {
+    btnOk : Button
     constructor () {
         super();
     }
 
     initWindow() {
         super.initWindow();
+        let btn: Node = find("btnLogin", this.node);
+        this.btnOk = btn.getComponent(Button);
+        let clickHandler = function() {
+
+        }
+        this.btnOk.node.on(Button.EventType.CLICK, this.callback, this)
+        CCGame.ctrl.Account.Login("userName", null);
+        
+    }
+
+    callback() {
+        
     }
 }
 

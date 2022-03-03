@@ -1,7 +1,10 @@
 declare class pomelo {
-    static init(params, cb: Function);
+    constructor();
+    
+    init(params, cb: Function);
 
-    static request(route, msg, cb: Function);
+    request(route, msg, cb: Function);
 
-    static disconnect(cb: Function);
+    disconnect(cb: Function);
 }
+declare function createPomelo() : pomelo;

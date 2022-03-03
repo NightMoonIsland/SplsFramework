@@ -11,10 +11,16 @@ export class BaseWindow {
 
 
     setPrefab(node: Node) {
-        
+        this.node = node;
     }
 
     initWindow() {
         
+    }
+
+    dispose() {
+        if(this.node) {
+            
+        }
     }
 }

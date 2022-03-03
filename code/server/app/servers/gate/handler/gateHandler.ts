@@ -1,6 +1,9 @@
 import { dispatch } from '../../../util/dispatcher';
 import { Application , BackendSession} from 'pinus';
 
+
+console.error("GateHandler test");
+
 export default function (app: Application) {
     return new GateHandler(app);
 }

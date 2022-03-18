@@ -1,52 +1,43 @@
 
 import { _decorator, Component, Node, resources, Prefab, instantiate } from 'cc';
 const { ccclass, property } = _decorator;
-import {BaseWindow} from './BaseWindow'
+import {BaseWindow} from '../../framework/base/BaseWindow'
 // import {UILogin} from '../../game/window/UILogin'
 // declare let require: (string) => any;
-import { WindowsMap } from "../../game/utils/const"
+import { WindowsMap } from "../const/Windows"
+import { EventMsg } from "../const/EventMsg"
 
-export class WindowMgr {
+import { Controller } from '../../framework/base/Controller'
+
+export class WindowMgr extends Controller {
     node: Node;
-    private constructor() { }
-    private static instance : WindowMgr;
-    public static getInstance() :WindowMgr{
-        if (!this.instance) {
-            this.instance = new WindowMgr()
-        }
-        return this.instance;
+
+    constructor() {
+        super()
+        this.registerEvent(EventMsg.CloseWindow, this.recCloseWindow.bind(this));
     }
 
     initialize(node: Node) {
         this.node = node;
     }
 
-    openWindowsMap : BaseWindow []
+    openWindowsMap : {[key:string]: BaseWindow} = {};
     //
     // 打开指定UI
     //
-    openWindow(windowName) : BaseWindow {
-        // if (this.openWindowsMap[windowName] ) {
-        //     return this.openWindowsMap[windowName]
-        // }
-        if(this.openWindowsMap[windowName]) {
+    openWindow(windowName : string) : BaseWindow {
+        if(this.openWindowsMap[windowName] != null) {
             return;
         }
         let cls = WindowsMap[windowName]
-        // let requireCls = require("../../game/window/UILogin");
-        // let uiCls = requireCls.default;
-        // let uiIns = new uiCls();
-        // // let window = import {} from 
-        // return uiIns
+        
         let windowCls = new cls() as BaseWindow
-
         let prefabPath = "prefab/" + windowName;
 
         resources.load(prefabPath, Prefab, (err, prefab) => {
             const newNode = instantiate(prefab);
             this.node.addChild(newNode);
-            windowCls.setPrefab(newNode)
-            windowCls.initWindow()
+            windowCls.initWindow(windowName, newNode);
         });
         this.openWindowsMap[windowName] = windowCls;
 
@@ -55,8 +46,12 @@ export class WindowMgr {
 
     closeWindow(windowName) {
         if(this.openWindowsMap[windowName]) {
-            
+            this.openWindowsMap[windowName].dispose();
             this.openWindowsMap[windowName] = null;
         }
+    }
+
+    recCloseWindow(data : {name:string}) {
+        this.closeWindow(data.name);
     }
 }

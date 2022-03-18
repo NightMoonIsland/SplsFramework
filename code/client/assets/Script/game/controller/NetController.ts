@@ -1,21 +1,18 @@
 
 // import { G } from '../utils/game'
 
-export class NetController {
-    private constructor() { }
-    private static instance : NetController;
-    static getInstance() :NetController{
-        if (!this.instance) {
-            this.instance = new NetController()
-        }
-        return this.instance;
-    }
+import { Spls } from "../utils/global";
 
+import { Controller } from '../../framework/base/Controller'
+
+export class NetController extends Controller {
+    username : string;
     conn : pomelo;
-    route : string = 'gate.gateHandler.queryEntry';
+    route : string = 'connector.entryHandler.enter';
     isConnect: boolean = false;
 
-    public Connect(host : string, port : number) {
+    public Connect(username:string, host : string, port : number) {
+        this.username = username;
         if (!this.conn) {
             this.conn = createPomelo();
         }
@@ -28,16 +25,29 @@ export class NetController {
     }
 
     ConnectSuccess(data) {
-
+        Spls.log.Info("Start Login Account");
+        this.request(this.route, {username: this.username, rid :"2333"}, this.LoginCallback.bind(this));
     }
 
-    public request(route: string, data) {
-        if(!this.conn) {
+    public request(route: string, data, callback: Function) {
+        // if(!this.conn) {
+        //     return;
+        // }
+
+        // if(!this.isConnect) {
+        //     return; 
+        // }
+        this.conn.request(route, data, callback);
+    }
+
+    LoginCallback(data) {
+        if(data.code === 500) {
+            // showError(LOGIN_ERROR);
             return;
         }
-
-        if(!this.isConnect) {
-            return; 
+        let users : [] = data.users;
+        if(users) {
+            Spls.log.Info("users" + users.length);
         }
     }
 }

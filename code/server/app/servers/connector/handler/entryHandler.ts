@@ -19,7 +19,7 @@ export class EntryHandler {
     async enter(msg: { rid: string, username: string }, session: FrontendSession) {
         let self = this;
         let rid = msg.rid;
-        let uid = msg.username + '*' + rid;
+        let uid = msg.username;// + '*' + rid;
         let sessionService = self.app.get('sessionService');
 
         // duplicate log in

@@ -1,4 +1,4 @@
-import { WindowMgr } from "../../framework/base/WindowMgr"
+import { WindowMgr } from "../controller/WindowMgr"
 import { AccountController } from "../controller/AccountController"
 import { NetController } from "../controller/NetController"
 
@@ -17,8 +17,8 @@ class Controller {
     WindowMgr : WindowMgr;
 }
 
-export class CCGame {
-    static ctrl = Controller.getInstance();
+export class Spls {
+    static ctrl: Controller;
     static log = {
         Info : function(str) {
             console.log(str);
@@ -27,9 +27,10 @@ export class CCGame {
 }
 
 let InitGlobalVariable: Function = function() {
-    CCGame.ctrl.Account = AccountController.getInstance();
-    CCGame.ctrl.Net = NetController.getInstance();
-    CCGame.ctrl.WindowMgr = WindowMgr.getInstance(); 
+    Spls.ctrl = Controller.getInstance()
+    Spls.ctrl.Account = AccountController.getInstance();
+    Spls.ctrl.Net = NetController.getInstance();
+    Spls.ctrl.WindowMgr = WindowMgr.getInstance();
 }
 
 export {InitGlobalVariable}

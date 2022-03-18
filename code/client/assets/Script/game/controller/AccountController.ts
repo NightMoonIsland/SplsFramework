@@ -1,19 +1,13 @@
-import { CCGame } from '../utils/game'
+import { Spls } from '../utils/global'
+import { Controller } from '../../framework/base/Controller'
 
-export class AccountController {
-    private constructor() { }
-    private static instance : AccountController;
-    static getInstance() :AccountController{
-        if (!this.instance) {
-            this.instance = new AccountController()
-        }
-        return this.instance;
-    }
-
+export class AccountController extends Controller {
     conn : pomelo;
     route : string = 'gate.gateHandler.queryEntry';
+    uid : string;
 
     public Login(uid, callback) {
+        this.uid = uid;
         if (this.conn) {
             this.conn = null;
         }
@@ -37,7 +31,7 @@ export class AccountController {
             // showError(LOGIN_ERROR);
             return;
         }
-        CCGame.log.Info("Login Gate Success")
-        // CCGame.ctrl.Net.Init(data.host, data.port);
+        Spls.log.Info("Connect Gate Success")
+        Spls.ctrl.Net.Connect(this.uid, data.host, data.port);
     }
 }

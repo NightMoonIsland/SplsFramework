@@ -1,18 +1,13 @@
-
-// import { G } from '../utils/game'
-
 import { Spls } from "../utils/global";
-
 import { Controller } from '../../framework/base/Controller'
+import { ProtocolMap } from "../const/ProtocolRoute"
+import { EnterReqData } from "../const/ProtocolData"
 
 export class NetController extends Controller {
-    username : string;
     conn : pomelo;
-    route : string = 'connector.entryHandler.enter';
     isConnect: boolean = false;
 
     public Connect(username:string, host : string, port : number) {
-        this.username = username;
         if (!this.conn) {
             this.conn = createPomelo();
         }
@@ -21,15 +16,18 @@ export class NetController extends Controller {
             host: host,
             port: port,
             log: true
-            }, this.ConnectSuccess.bind(this));
+            }, this.ConnectSuccess.bind(this, username));
     }
 
-    ConnectSuccess(data) {
+    ConnectSuccess(username:string) {
         Spls.log.Info("Start Login Account");
-        this.request(this.route, {username: this.username, rid :"2333"}, this.LoginCallback.bind(this));
+        let reqData:EnterReqData = new EnterReqData();
+        reqData.username = username;
+        reqData.rid = "2333";
+        this.request(ProtocolMap.enter, reqData);
     }
 
-    public request(route: string, data, callback: Function) {
+    public request(route: string, data) {
         // if(!this.conn) {
         //     return;
         // }
@@ -37,17 +35,10 @@ export class NetController extends Controller {
         // if(!this.isConnect) {
         //     return; 
         // }
-        this.conn.request(route, data, callback);
+        this.conn.request(route, data, this.requestBack.bind(this, route));
     }
 
-    LoginCallback(data) {
-        if(data.code === 500) {
-            // showError(LOGIN_ERROR);
-            return;
-        }
-        let users : [] = data.users;
-        if(users) {
-            Spls.log.Info("users" + users.length);
-        }
+    requestBack(route, data) {
+        this.dispacthEvent(route, data);
     }
 }

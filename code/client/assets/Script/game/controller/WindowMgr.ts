@@ -2,15 +2,13 @@
 import { _decorator, Component, Node, resources, Prefab, instantiate } from 'cc';
 const { ccclass, property } = _decorator;
 import {BaseWindow} from '../../framework/base/BaseWindow'
-// import {UILogin} from '../../game/window/UILogin'
-// declare let require: (string) => any;
 import { WindowsMap } from "../const/Windows"
 import { EventMsg } from "../const/EventMsg"
 
 import { Controller } from '../../framework/base/Controller'
 
 export class WindowMgr extends Controller {
-    node: Node;
+    uiRoot: Node;
 
     constructor() {
         super()
@@ -18,7 +16,7 @@ export class WindowMgr extends Controller {
     }
 
     initialize(node: Node) {
-        this.node = node;
+        this.uiRoot = node;
     }
 
     openWindowsMap : {[key:string]: BaseWindow} = {};
@@ -36,7 +34,7 @@ export class WindowMgr extends Controller {
 
         resources.load(prefabPath, Prefab, (err, prefab) => {
             const newNode = instantiate(prefab);
-            this.node.addChild(newNode);
+            this.uiRoot.addChild(newNode);
             windowCls.initWindow(windowName, newNode);
         });
         this.openWindowsMap[windowName] = windowCls;

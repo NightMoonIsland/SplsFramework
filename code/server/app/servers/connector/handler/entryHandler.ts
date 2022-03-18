@@ -1,5 +1,6 @@
 import {Application} from 'pinus';
 import {FrontendSession} from 'pinus';
+import { EnterReqData, EnterResData } from '../../../../config/protocolData'
 
 export default function (app: Application) {
     return new EntryHandler(app);
@@ -16,7 +17,7 @@ export class EntryHandler {
      * @param  {Object}   msg     request message
      * @param  {Object}   session current session object
      */
-    async enter(msg: { rid: string, username: string }, session: FrontendSession) {
+    async enter(msg: EnterReqData, session: FrontendSession) {
         let self = this;
         let rid = msg.rid;
         let uid = msg.username;// + '*' + rid;
@@ -42,9 +43,9 @@ export class EntryHandler {
         // put user into channel
         let users = await self.app.rpc.chat.chatRemote.add.route(session)(uid, self.app.get('serverId'), rid, true);
 
-        return {
-            users: users
-        };
+        let res:EnterResData = new EnterResData();
+        res.users = users;
+        return res;
     }
 
     /**

@@ -2,12 +2,14 @@ import { WindowMgr } from "../controller/WindowMgr"
 import { AccountController } from "../controller/AccountController"
 import { NetController } from "../controller/NetController"
 
-class Controller {
+import { Account } from "../model/Account"
+
+class ControllerMgr {
     private constructor() { }
-    private static instance : Controller;
-    static getInstance() :Controller{
+    private static instance : ControllerMgr;
+    static getInstance() :ControllerMgr{
         if (!this.instance) {
-            this.instance = new Controller()
+            this.instance = new ControllerMgr()
         }
         return this.instance;
     }
@@ -16,9 +18,21 @@ class Controller {
     Net : NetController;
     WindowMgr : WindowMgr;
 }
+class ModelMgr {
+    private constructor() { }
+    private static instance : ModelMgr;
+    static getInstance() :ModelMgr{
+        if (!this.instance) {
+            this.instance = new ModelMgr()
+        }
+        return this.instance;
+    }
+    Account : Account;
+}
 
 export class Spls {
-    static ctrl: Controller;
+    static ctrl: ControllerMgr;
+    static model: ModelMgr;
     static log = {
         Info : function(str) {
             console.log(str);
@@ -27,10 +41,13 @@ export class Spls {
 }
 
 let InitGlobalVariable: Function = function() {
-    Spls.ctrl = Controller.getInstance()
+    Spls.ctrl = ControllerMgr.getInstance()
     Spls.ctrl.Account = AccountController.getInstance();
     Spls.ctrl.Net = NetController.getInstance();
     Spls.ctrl.WindowMgr = WindowMgr.getInstance();
+
+    Spls.model = ModelMgr.getInstance();
+    Spls.model.Account = Account.getInstance();
 }
 
 export {InitGlobalVariable}

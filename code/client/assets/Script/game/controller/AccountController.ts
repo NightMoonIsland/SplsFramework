@@ -1,9 +1,10 @@
 import { Spls } from '../utils/global'
 import { Controller } from '../../framework/base/Controller'
+import { ProtocolMap } from '../const/ProtocolRoute';
+import { QueryData } from '../const/ProtocolData';
 
 export class AccountController extends Controller {
     conn : pomelo;
-    route : string = 'gate.gateHandler.queryEntry';
     uid : string;
 
     public Login(uid, callback) {
@@ -21,12 +22,16 @@ export class AccountController extends Controller {
             }, this.Enter.bind(this, uid, callback));
     }
 
-    Enter(uid: string, callback: Function) {
-        this.conn.request(this.route, {uid: uid}, this.EnterCallback.bind(this))
+    Enter(uid: string) {
+        let reqData: QueryData = new QueryData();
+        reqData.uid = uid;
+        this.conn.request(ProtocolMap.query, reqData, this.EnterCallback.bind(this))
     }
 
     EnterCallback(data) {
         this.conn.disconnect(null);
+        this.conn = null;
+    
         if(data.code === 500) {
             // showError(LOGIN_ERROR);
             return;

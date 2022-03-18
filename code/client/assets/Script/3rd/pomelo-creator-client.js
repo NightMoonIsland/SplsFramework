@@ -43,6 +43,7 @@
 
   Emitter.prototype.on =
   Emitter.prototype.addEventListener = function(event, fn){
+    console.log("Emitter.prototype.on")
     this._callbacks = this._callbacks || {};
     (this._callbacks[event] = this._callbacks[event] || [])
       .push(fn);
@@ -129,7 +130,7 @@
     this._callbacks = this._callbacks || {};
     var args = [].slice.call(arguments, 1)
       , callbacks = this._callbacks[event];
-
+      console.log("Emitter.prototype.emit " + event);
     if (callbacks) {
       callbacks = callbacks.slice(0);
       for (var i = 0, len = callbacks.length; i < len; ++i) {
@@ -1518,6 +1519,7 @@ cc.Pomelo = function() {
   var processMessage = function(pomelo, msg) {
     if(!msg.id) {
       // server push message
+      console.log("msg.route " + msg.route )
       pomelo.emit(msg.route, msg.body);
       return;
     }

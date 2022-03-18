@@ -7,7 +7,7 @@ export class AccountController extends Controller {
     conn : pomelo;
     uid : string;
 
-    public Login(uid, callback) {
+    public Login(uid) {
         this.uid = uid;
         if (this.conn) {
             this.conn = null;
@@ -19,12 +19,13 @@ export class AccountController extends Controller {
             host: host,
             port: port,
             log: true
-            }, this.Enter.bind(this, uid, callback));
+            }, this.Enter.bind(this, uid));
     }
 
     Enter(uid: string) {
         let reqData: QueryData = new QueryData();
         reqData.uid = uid;
+
         this.conn.request(ProtocolMap.query, reqData, this.EnterCallback.bind(this))
     }
 

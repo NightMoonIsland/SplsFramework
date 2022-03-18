@@ -30,7 +30,7 @@ export class LoginWindow extends BaseWindow {
             Spls.log.Info(username);
             return;
         }
-        Spls.ctrl.Account.Login(username, null);
+        Spls.ctrl.Account.Login(username);
     }
 
     onCancel() {

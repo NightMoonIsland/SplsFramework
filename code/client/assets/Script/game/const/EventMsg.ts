@@ -2,7 +2,9 @@
 //或根据后端自动生成
 
 let EventMsg = {
-    CloseWindow : "CloseWindow"
+    CloseWindow : "CloseWindow",
+
+    On: "OnNetMsg",
 }
 
 export {EventMsg}

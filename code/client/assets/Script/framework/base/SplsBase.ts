@@ -6,10 +6,6 @@ import { EventSystem } from "./EventSystem"
 
 export class SplsBase {
     eventSystem : EventSystem = EventSystem.getInstance();
-    constructor() {
-
-    }
-    
     registerEvent(eventName:string, callback:Function) {
         this.eventSystem.registerEvent(eventName, callback);
     }

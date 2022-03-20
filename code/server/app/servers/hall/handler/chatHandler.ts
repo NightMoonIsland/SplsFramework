@@ -1,14 +1,14 @@
-import { ChatRemote } from '../remote/chatRemote';
+import { HallRemote } from '../remote/hallRemote';
 import {Application, BackendSession} from 'pinus';
 import { FrontendSession } from 'pinus';
 
 export default function(app: Application) {
-    return new ChatHandler(app);
+    return new HallHandler(app);
 }
 
-// console.error("chatHandler test");
+console.error("chatHandler test");
 
-export class ChatHandler {
+export class HallHandler {
     constructor(private app: Application) {
     }
 

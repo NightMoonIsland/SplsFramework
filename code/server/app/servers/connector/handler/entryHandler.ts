@@ -43,6 +43,9 @@ export class EntryHandler {
         // put user into channel
         let users = await self.app.rpc.chat.chatRemote.add.route(session)(uid, self.app.get('serverId'), rid, true);
 
+        // put user into channel
+        let users2 = await self.app.rpc.hall.hallRemote.add.route(session)(uid, self.app.get('serverId'), rid, true);
+
         let res:EnterResData = new EnterResData();
         res.users = users;
         return res;
@@ -60,5 +63,8 @@ export class EntryHandler {
             return;
         }
         this.app.rpc.chat.chatRemote.kick.route(session, true)(session.uid, this.app.get('serverId'), session.get('rid'));
+
+        //test
+        this.app.rpc.hall.hallRemote.kick.route(session, true)(session.uid, this.app.get('serverId'), session.get('rid'));
     }
 }

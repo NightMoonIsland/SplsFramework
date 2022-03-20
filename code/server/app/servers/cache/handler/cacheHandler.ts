@@ -1,14 +1,12 @@
-import { ChatRemote } from '../remote/chatRemote';
+import { CacheRemote } from '../remote/cacheRemote';
 import {Application, BackendSession} from 'pinus';
 import { FrontendSession } from 'pinus';
 
 export default function(app: Application) {
-    return new ChatHandler(app);
+    return new CacheHandler(app);
 }
 
-// console.error("chatHandler test");
-
-export class ChatHandler {
+export class CacheHandler {
     constructor(private app: Application) {
     }
 

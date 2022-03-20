@@ -10,9 +10,6 @@ module.exports = {
                 'args': '--inspect=10001'
             }
         ],
-        'chat': [
-            {'id': 'chat-server-1', 'host': '127.0.0.1', 'port': 6050, 'args': '--inspect=10002'}
-        ],
         'gate': [
             {
                 'id': 'gate-server-1',
@@ -21,7 +18,16 @@ module.exports = {
                 'frontend': true,
                 'args': '--inspect=10003'
             }
-        ]
+        ],
+        'chat': [
+            {'id': 'chat-server-1', 'host': '127.0.0.1', 'port': 6050, 'args': '--inspect=10002'}
+        ],
+        'hall': [
+            {'id': 'hall-server-1', 'host': '127.0.0.1', 'port': 6051, 'args': '--inspect=10005'}
+        ],
+        'cache': [
+            {'id': 'cache-server-1', 'host': '127.0.0.1', 'port': 6052, 'args': '--inspect=10006'}
+        ],
     },
     'production': {
         'connector': [

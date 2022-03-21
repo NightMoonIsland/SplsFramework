@@ -1,5 +1,6 @@
 import { Application, ChannelService, FrontendSession, RemoterClass } from 'pinus';
 
+
 export default function (app: Application) {
     return new HallRemote(app);
 }
@@ -39,6 +40,31 @@ export class HallRemote {
         if (!!channel) {
             channel.add(uid, sid);
         }
+        let self = this;
+        if(!!self.app.rpc) {
+            console.log("cache OK");
+        }
+        else{
+            console.log("cache null");
+        }
+        if(!!self.app.sysrpc) {
+            console.log("sys cache OK");
+        }
+        else{
+            console.log("sys cache null");
+        }
+        // if(!!self.app) {
+        //     console.log("sys cache OK");
+        // }
+        // else{
+        //     console.log("sys cache null");
+        // }
+        // if(!!self.app.rpc.cache.cacheRemote) {
+        //     console.log("cache Remote OK");
+        // }
+        console.log("start add");
+        let test = await this.app.rpc.cache.cacheRemote.add.to('cache-server-1')(1, 2);
+        console.log("add result = " + test);
 
         return this.get(name, flag);
     }

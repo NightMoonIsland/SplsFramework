@@ -7,5 +7,11 @@ module.exports = [{
 }, {
     'type': 'gate',
     'token': 'agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn'
+}, {
+    'type': 'hall',
+    'token': 'agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn'
+}, {
+    'type': 'cache',
+    'token': 'agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn'
 }
 ];

@@ -40,6 +40,12 @@ export class EntryHandler {
         });
         session.on('closed', this.onUserLeave.bind(this));
 
+        if(!!self.app.rpc) {
+            console.log("cache OK");
+        }
+        else{
+            console.log("cache null");
+        }
         // put user into channel
         let users = await self.app.rpc.chat.chatRemote.add.route(session)(uid, self.app.get('serverId'), rid, true);
 

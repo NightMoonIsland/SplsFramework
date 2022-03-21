@@ -24,7 +24,7 @@ export class CacheRemote {
 
     private channelService: ChannelService;
 
-    public async add(a: number, b : number) {
+    public add(a: number, b : number) {
         return a + b;
     }
 }

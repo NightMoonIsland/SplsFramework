@@ -20,13 +20,13 @@ module.exports = {
             }
         ],
         'chat': [
-            {'id': 'chat-server-1', 'host': '127.0.0.1', 'port': 6050, 'args': '--inspect=10002'}
+            {'id': 'chat-server-1', 'host': '127.0.0.1', 'port': 6050, 'args': '--inspect=10002', 'frontend': true}
         ],
         'hall': [
-            {'id': 'hall-server-1', 'host': '127.0.0.1', 'port': 6051, 'args': '--inspect=10005'}
+            {'id': 'hall-server-1', 'host': '127.0.0.1', 'port': 6991, 'args': '--inspect=10005', 'frontend': true}
         ],
         'cache': [
-            {'id': 'cache-server-1', 'host': '127.0.0.1', 'port': 6052, 'args': '--inspect=10006'}
+            {'id': 'cache-server-1', 'host': '127.0.0.1', 'port': 6992, 'args': '--inspect=10006'}
         ],
     },
     'production': {

@@ -4,6 +4,7 @@ import { NetController } from "../controller/NetController"
 
 import { Account } from "../model/Account"
 
+//Controller
 class ControllerMgr {
     private constructor() { }
     private static instance : ControllerMgr;
@@ -18,6 +19,8 @@ class ControllerMgr {
     Net : NetController;
     WindowMgr : WindowMgr;
 }
+
+//Model
 class ModelMgr {
     private constructor() { }
     private static instance : ModelMgr;
@@ -30,6 +33,7 @@ class ModelMgr {
     Account : Account;
 }
 
+//Global
 export class Spls {
     static ctrl: ControllerMgr;
     static model: ModelMgr;

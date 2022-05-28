@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, resources } from 'cc';
+import { _decorator, Component, Node, resources, game } from 'cc';
 const { ccclass, property } = _decorator;
 
 import { Spls, InitGlobalVariable } from './utils/global'
@@ -7,19 +7,12 @@ import { Spls, InitGlobalVariable } from './utils/global'
 
 @ccclass('Main')
 export class Main extends Component {
-    // [1]
-    // dummy = '';
-
-    // [2]
-    // @property
-    // serializableDummy = 0;
-
+    
     start () {
         InitGlobalVariable();
-
-        Spls.ctrl.WindowMgr.initialize(this.node)
-        Spls.ctrl.WindowMgr.openWindow("LoginWindow")
-        // [3]
+        game.addPersistRootNode(this.node);
+        Spls.ctrl.WindowMgr.initialize(this.node);
+        Spls.ctrl.WindowMgr.openWindow("LoginWindow");
     }
 
     onClick() {

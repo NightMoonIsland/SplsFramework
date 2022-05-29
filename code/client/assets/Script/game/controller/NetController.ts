@@ -26,29 +26,17 @@ export class NetController extends Controller {
         reqData.rid = "2333";
         for(let route in ProtocolArray) {
             let routeName = ProtocolArray[route];
-            // let self = this;
-            // this.conn.on(routeName, function(data) {
-            //     Spls.log.Info("Recieve " + routeName);
-            //     self.dispacthEvent(routeName, data);
-            // })
+
             this.conn.on(routeName, this.onMessageCb.bind(this, routeName));
         }
         this.request(ProtocolMap.enter, reqData);
     }
 
     public onMessageCb(route, data) {
-        // Spls.log.Info("Recieve  " + route);
         this.dispacthEvent(route, data);
     }
 
     public request(route: string, data) {
-        // if(!this.conn) {
-        //     return;
-        // }
-
-        // if(!this.isConnect) {
-        //     return; 
-        // }
         this.conn.request(route, data, this.requestBack.bind(this, route));
     }
 

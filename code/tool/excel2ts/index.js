@@ -4,7 +4,8 @@ var xlsx = require('node-xlsx');
 
 let dir = path.resolve(__dirname, '..', '..', 'config')
 console.log(dir)
-
+let outDir = path.resolve(__dirname, '..', '..', 'client', "assets", 'script', 'game', 'config')
+console.log(outDir)
 let excel2tsHandler = function(excel, excelName) {
     if(excel[0].name == 'Sheet1') {
         excelName = excelName.substr(0, excelName.indexOf('.'))
@@ -57,7 +58,7 @@ let excel2tsHandler = function(excel, excelName) {
         }
         outTsFile = outTsFile + "]\n";
         console.log(outTsFile);
-        fs.writeFileSync("./" + excelName + ".ts", outTsFile);
+        fs.writeFileSync(outDir + "/" + excelName + ".ts", outTsFile);
     }
 }
 

@@ -14,18 +14,6 @@ export class BaseWindow extends SplsBase {
 
     initialize(name: string, node: Node, uiRoot: Node) {
         this.node = node;
-        // let nodeWidget = node.getComponent(Widget);
-
-        // nodeWidget.target = uiRoot;
-        // nodeWidget.isAlignLeft = true;
-        // nodeWidget.isAlignRight = true;
-        // nodeWidget.isAlignTop = true;
-        // nodeWidget.isAlignBottom = true;
-
-        // nodeWidget.editorLeft = 0;
-        // nodeWidget.editorRight = 0;
-        // nodeWidget.editorTop = 0;
-        // nodeWidget.editorBottom = 0;
 
         this.windowName = name;
     }

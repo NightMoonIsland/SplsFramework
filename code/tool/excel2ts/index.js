@@ -39,7 +39,7 @@ let excel2tsHandler = function(excel, excelName) {
             outTsFile = outTsFile + paramUnit + " : " + type + ";\n";
         }
         outTsFile = outTsFile + "}\n\n";
-        outTsFile = outTsFile + "let datas : " + excelName + "[] = [\n"
+        outTsFile = outTsFile + "export let datas : " + excelName + "[] = [\n"
 
         for(i = 3; i < length; i++) {
             outTsFile = outTsFile + "   { ";

@@ -4,7 +4,7 @@ class item {
    desc : string;
 }
 
-let datas : item[] = [
+export let datas : item[] = [
    { id : 10000001, type : undefined, desc : "undefined" },
    { id : 10000002, type : undefined, desc : "undefined" },
 ]

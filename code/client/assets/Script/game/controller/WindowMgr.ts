@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, resources, Prefab, instantiate } from 'cc';
+import { _decorator, Component, Node, resources, Prefab, instantiate, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 import {BaseWindow} from '../../framework/base/BaseWindow'
 import { WindowsMap } from "../const/Windows"
@@ -35,6 +35,7 @@ export class WindowMgr extends Controller {
         resources.load(prefabPath, Prefab, (err, prefab) => {
             const newNode = instantiate(prefab);
             this.uiRoot.addChild(newNode);
+            newNode.position = Vec3.ZERO;
             windowCls.initWindow(windowName, newNode);
         });
         this.openWindowsMap[windowName] = windowCls;

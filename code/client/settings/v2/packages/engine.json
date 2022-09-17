@@ -14,8 +14,14 @@
       "gfx-webgl2": {
         "_value": false
       },
+      "animation": {
+        "_value": true
+      },
+      "skeletal-animation": {
+        "_value": true
+      },
       "3d": {
-        "_value": false
+        "_value": true
       },
       "2d": {
         "_value": true
@@ -88,18 +94,13 @@
       "dragon-bones": {
         "_value": true
       },
-      "animation": {
-        "_value": true
-      },
-      "skeletal-animation": {
-        "_value": true
-      },
       "marionette": {
         "_value": true
       }
     },
     "includeModules": [
       "2d",
+      "3d",
       "animation",
       "audio",
       "base",
@@ -121,6 +122,7 @@
     "noDeprecatedFeatures": {
       "value": false,
       "version": ""
-    }
+    },
+    "flags": {}
   }
 }

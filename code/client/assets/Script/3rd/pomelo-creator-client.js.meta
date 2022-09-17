@@ -1,5 +1,5 @@
 {
-  "ver": "4.0.22",
+  "ver": "4.0.23",
   "importer": "javascript",
   "imported": true,
   "uuid": "74678222-9980-4afe-b6f5-12b5603f710c",
@@ -10,7 +10,6 @@
   "userData": {
     "dependencies": [],
     "isPlugin": true,
-    "importAsPlugin": true,
     "executionScope": "enclosed",
     "loadPluginInWeb": true,
     "loadPluginInNative": true,

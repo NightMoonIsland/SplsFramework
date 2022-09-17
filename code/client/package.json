@@ -1,17 +1,17 @@
 {
-  "name": "GameTest",
-  "type": "3d",
-  "uuid": "4a9caed7-0c26-45dc-8421-d310355a750b",
-  "version": "3.2.1",
   "creator": {
-    "version": "3.2.1"
+    "version": "3.5.2"
+  },
+  "dependencies": {
+    "@types/ws": "^7.4.7",
+    "ws": "^8.1.0"
   },
   "devDependencies": {
     "webpack": "^5.50.0",
     "webpack-cli": "^4.7.2"
   },
-  "dependencies": {
-    "@types/ws": "^7.4.7",
-    "ws": "^8.1.0"
-  }
+  "name": "GameTest",
+  "type": "3d",
+  "uuid": "4a9caed7-0c26-45dc-8421-d310355a750b",
+  "version": "3.5.2"
 }

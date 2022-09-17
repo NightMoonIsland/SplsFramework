@@ -1,5 +1,6 @@
 {
   "gizmos-infos": {
     "is2D": true
-  }
+  },
+  "__version__": "1.0.0"
 }
